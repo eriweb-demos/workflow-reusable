@@ -13,8 +13,8 @@ jobs:
     name: print name
     runs-on: ubuntu-latest
     steps:
-      - run: env
-      - run: |
+      - name: print message
+        run: |
           echo "Hello ${NAME:-World}"
         env:
           NAME: ${{ inputs.name }}
