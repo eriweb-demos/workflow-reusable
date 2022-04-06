@@ -1,0 +1,20 @@
+name: 'reusable workflow'
+on:
+  push:
+  workflow_call:
+    inputs:
+      name:
+        type: string
+        default: 'Workflow'
+        required: false
+
+jobs:
+  print_name:
+    name: print name
+    runs-on: ubuntu-latest
+    steps:
+      - run: env
+      - run: |
+          echo "Hello ${NAME:-World}"
+        env:
+          NAME: ${{ inputs.name }}
